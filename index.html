@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Highway Traveller — Service Recommendation System</title>
+  <meta name="description"
+    content="AI-powered highway service recommendations for fuel, food, hospitals and rest stops along your route." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+
+    <a class="nav-logo" href="#" aria-label="Smart Highway Traveller Home">
+      <div class="logo-icon" aria-hidden="true">🛣️</div>
+      <div class="nav-title">
+        <span>Smart Highway Traveller</span>
+        <span>Service Recommendation System</span>
+      </div>
+    </a>
+
+    <!-- Destination Search -->
+    <div id="destination-wrap" role="search">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input id="destination-input" type="text" placeholder="Where are you going? (e.g. Agra, Meerut)"
+        aria-label="Destination input" autocomplete="off" />
+      <button id="go-btn" aria-label="Get route recommendations">Go</button>
+    </div>
+
+    <!-- Clock Chip -->
+    <div id="nav-right">
+      <div id="time-chip" aria-live="polite">
+        <span class="clock-icon" aria-hidden="true">🕐</span>
+        <span id="clock-display">--:--</span>
+      </div>
+    </div>
+  </nav>
+
+  <div id="app">
+    <aside id="sidebar" role="complementary" aria-label="Nearby services">
+
+      <!-- Sidebar Header -->
+      <div id="sidebar-header">
+        <h2>Nearby Services</h2>
+        <!-- <p id="sidebar-subtitle">Fetching your location…</p> -->
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div id="filter-chips" role="tablist" aria-label="Filter by category">
+        <button class="chip active" data-type="all" role="tab" onclick="filterBy('all')"> 🗺️ All</button>
+        <button class="chip" data-type="fuel" role="tab" onclick="filterBy('fuel')"> ⛽ Fuel</button>
+        <button class="chip" data-type="food" role="tab" onclick="filterBy('food')"> 🍽️ Food</button>
+        <button class="chip" data-type="hospital" role="tab" onclick="filterBy('hospital')"> 🏥 Hospital</button>
+        <button class="chip" data-type="rest" role="tab" onclick="filterBy('rest')"> 🛋️ Rest</button>
+      </div>
+
+      <!-- Result Cards -->
+      <div id="cards-container" role="list" aria-label="Service recommendations">
+        <div id="empty-state">
+          <div class="empty-icon">📡</div>
+          <p>Detecting your location…<br />Services will appear here shortly.</p>
+        </div>
+      </div>
+
+    </aside>
+
+    <main id="map-wrap" role="main">
+
+      <!-- Google Map -->
+      <div id="map" aria-label="Interactive highway map"></div>
+
+      <!-- Map Overlay Controls -->
+      <div id="map-controls">
+        <button class="map-btn" id="recenter-btn" title="Re-centre on your location"
+          onclick="if(userLat) map.panTo({lat:userLat,lng:userLng})">
+          📍 My Location
+        </button>
+        <button class="map-btn" id="refresh-btn" title="Refresh recommendations"
+          onclick="fetchRecommendations(); showToast('🔄 Recommendations refreshed')">
+          🔄 Refresh
+        </button>
+      </div>
+
+      <!-- Route Info Badge -->
+      <div id="route-info" role="status" aria-live="polite">
+        🗺️ Route to <strong id="route-dest">—</strong>
+        <span id="route-details" style="color:var(--text-secondary);font-size:11px;"></span>
+        <button id="clear-route-btn">✕ Clear</button>
+      </div>
+
+      <!-- Map Legend -->
+      <div id="legend" aria-label="Map legend">
+        <h4>Legend</h4>
+        <div class="legend-item">
+          <div class="legend-dot fuel"></div> Fuel Station
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot food"></div> Food / Dhaba
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot hospital"></div> Hospital
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot rest"></div> Rest Stop
+        </div>
+      </div>
+
+      <!-- Weather Strip -->
+      <div id="weather-strip" aria-label="Current weather" aria-live="polite">
+        <div id="weather-icon" aria-hidden="true">🌤️</div>
+        <div id="weather-info">
+          <div id="weather-temp">--°C</div>
+          <div id="weather-city">Loading…</div>
+          <div id="weather-desc"></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="toast" role="alert" aria-live="assertive"></div>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>

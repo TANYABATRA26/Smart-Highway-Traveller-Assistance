@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "HP Petrol Pump — NH-9 Ghaziabad",
+    "type": "fuel",
+    "lat": 28.6692,
+    "lng": 77.4538,
+    "rating": 4.2,
+    "address": "NH-9, Near Kaushambi, Ghaziabad"
+  },
+  {
+    "id": 2,
+    "name": "Indian Oil — Noida Sector 14A",
+    "type": "fuel",
+    "lat": 28.5706,
+    "lng": 77.3230,
+    "rating": 4.0,
+    "address": "Sector 14A, Noida, UP"
+  },
+  {
+    "id": 3,
+    "name": "BPCL Fuel Station — DND Flyway",
+    "type": "fuel",
+    "lat": 28.5564,
+    "lng": 77.3010,
+    "rating": 4.5,
+    "address": "DND Flyway, Noida, UP"
+  },
+  {
+    "id": 4,
+    "name": "Reliance BP — Greater Noida Expressway",
+    "type": "fuel",
+    "lat": 28.4744,
+    "lng": 77.5040,
+    "rating": 3.9,
+    "address": "Noida-Greater Noida Expressway, UP"
+  },
+  {
+    "id": 5,
+    "name": "Shell Petrol — NH-9 Indirapuram",
+    "type": "fuel",
+    "lat": 28.6411,
+    "lng": 77.3687,
+    "rating": 4.3,
+    "address": "NH-9, Indirapuram, Ghaziabad"
+  },
+  {
+    "id": 6,
+    "name": "Haveli Dhaba — NH-9",
+    "type": "food",
+    "lat": 28.6820,
+    "lng": 77.4710,
+    "rating": 4.6,
+    "address": "NH-9, Mohan Nagar, Ghaziabad"
+  },
+  {
+    "id": 7,
+    "name": "Punjab Da Dhaba — Noida Sector 58",
+    "type": "food",
+    "lat": 28.6207,
+    "lng": 77.3640,
+    "rating": 4.4,
+    "address": "Sector 58, Noida, UP"
+  },
+  {
+    "id": 8,
+    "name": "Amrik Sukhdev — Expressway Exit",
+    "type": "food",
+    "lat": 28.5055,
+    "lng": 77.4960,
+    "rating": 4.7,
+    "address": "Yamuna Expressway, Greater Noida"
+  },
+  {
+    "id": 9,
+    "name": "Haldirams — Noida Sector 18",
+    "type": "food",
+    "lat": 28.5674,
+    "lng": 77.3217,
+    "rating": 4.3,
+    "address": "Sector 18, Noida, UP"
+  },
+  {
+    "id": 10,
+    "name": "Moti Mahal Restaurant — NH-9",
+    "type": "food",
+    "lat": 28.6610,
+    "lng": 77.4315,
+    "rating": 4.1,
+    "address": "NH-9, Raj Nagar, Ghaziabad"
+  },
+  {
+    "id": 11,
+    "name": "Bikanervala — Crossing Republik",
+    "type": "food",
+    "lat": 28.6513,
+    "lng": 77.4102,
+    "rating": 4.0,
+    "address": "Crossing Republik, Ghaziabad"
+  },
+  {
+    "id": 12,
+    "name": "Highway Bites — Greater Noida West",
+    "type": "food",
+    "lat": 28.5932,
+    "lng": 77.4330,
+    "rating": 3.8,
+    "address": "Greater Noida West, UP"
+  },
+  {
+    "id": 13,
+    "name": "Kailash Hospital — Noida Sector 27",
+    "type": "hospital",
+    "lat": 28.5700,
+    "lng": 77.3290,
+    "rating": 4.5,
+    "address": "Sector 27, Noida, UP"
+  },
+  {
+    "id": 14,
+    "name": "Max Hospital — Vaishali",
+    "type": "hospital",
+    "lat": 28.6450,
+    "lng": 77.3380,
+    "rating": 4.6,
+    "address": "Vaishali, Ghaziabad"
+  },
+  {
+    "id": 15,
+    "name": "Apollo Clinic — Indirapuram",
+    "type": "hospital",
+    "lat": 28.6391,
+    "lng": 77.3710,
+    "rating": 4.3,
+    "address": "Indirapuram, Ghaziabad"
+  },
+  {
+    "id": 16,
+    "name": "Yatharth Hospital — Greater Noida West",
+    "type": "hospital",
+    "lat": 28.5879,
+    "lng": 77.4210,
+    "rating": 4.4,
+    "address": "Greater Noida West, UP"
+  },
+  {
+    "id": 17,
+    "name": "NH-9 Highway Rest Stop — Mohan Nagar",
+    "type": "rest",
+    "lat": 28.6750,
+    "lng": 77.4620,
+    "rating": 3.7,
+    "address": "NH-9, Mohan Nagar, Ghaziabad"
+  },
+  {
+    "id": 18,
+    "name": "Expressway Lounge — Noida-GN Expy",
+    "type": "rest",
+    "lat": 28.5100,
+    "lng": 77.4880,
+    "rating": 4.0,
+    "address": "Noida-Greater Noida Expressway, UP"
+  },
+  {
+    "id": 19,
+    "name": "Delhi-Meerut Expressway Rest Area",
+    "type": "rest",
+    "lat": 28.7120,
+    "lng": 77.5010,
+    "rating": 3.9,
+    "address": "Delhi-Meerut Expressway, UP"
+  },
+  {
+    "id": 20,
+    "name": "Traveller's Haven — Sector 62 Noida",
+    "type": "rest",
+    "lat": 28.6270,
+    "lng": 77.3715,
+    "rating": 4.1,
+    "address": "Sector 62, Noida, UP"
+  }
+]
