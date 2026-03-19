@@ -1,4 +1,4 @@
-const API_BASE      = 'http://localhost:3000';
+const API_BASE      = 'https://smart-highway-traveller-assistance.onrender.com';
 let OWM_KEY         = '';
 const MARKER_COLORS = {
   fuel:     '#f6a623',
