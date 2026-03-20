@@ -178,5 +178,160 @@
     "lng": 77.3715,
     "rating": 4.1,
     "address": "Sector 62, Noida, UP"
+  },
+
+  {
+    "id": 21,
+    "name": "Indian Oil — Yamuna Expy Km 8",
+    "type": "fuel",
+    "lat": 28.4630,
+    "lng": 77.5120,
+    "rating": 4.1,
+    "address": "Yamuna Expressway, near Jewar, UP"
+  },
+  {
+    "id": 22,
+    "name": "HP Fuel — Yamuna Expy Km 40",
+    "type": "fuel",
+    "lat": 28.3400,
+    "lng": 77.5700,
+    "rating": 3.8,
+    "address": "Yamuna Expressway, Tappal, UP"
+  },
+  {
+    "id": 23,
+    "name": "BPCL — Yamuna Expy Km 80",
+    "type": "fuel",
+    "lat": 28.1800,
+    "lng": 77.6400,
+    "rating": 4.0,
+    "address": "Yamuna Expressway, UP"
+  },
+  {
+    "id": 24,
+    "name": "Pind Balluchi — Yamuna Expy Food Court",
+    "type": "food",
+    "lat": 28.4580,
+    "lng": 77.5200,
+    "rating": 4.5,
+    "address": "Yamuna Expressway Service Area, Jewar"
+  },
+  {
+    "id": 25,
+    "name": "Dhaba 58 — Yamuna Expy Midway",
+    "type": "food",
+    "lat": 28.2900,
+    "lng": 77.6050,
+    "rating": 4.2,
+    "address": "Yamuna Expressway, Km 58, UP"
+  },
+  {
+    "id": 26,
+    "name": "Sher-e-Punjab Dhaba — Km 120",
+    "type": "food",
+    "lat": 27.9200,
+    "lng": 77.6600,
+    "rating": 4.3,
+    "address": "Yamuna Expressway, Km 120, UP"
+  },
+  {
+    "id": 27,
+    "name": "Agra Highway Treats — Near Agra",
+    "type": "food",
+    "lat": 27.5500,
+    "lng": 77.6700,
+    "rating": 4.0,
+    "address": "Yamuna Expressway, Near Agra Toll, UP"
+  },
+  {
+    "id": 28,
+    "name": "Jewar Trauma Centre",
+    "type": "hospital",
+    "lat": 28.4700,
+    "lng": 77.5080,
+    "rating": 4.1,
+    "address": "Jewar, Gautam Buddh Nagar, UP"
+  },
+  {
+    "id": 29,
+    "name": "Mathura Road Hospital",
+    "type": "hospital",
+    "lat": 28.2600,
+    "lng": 77.6100,
+    "rating": 3.9,
+    "address": "Yamuna Expressway Service Road, UP"
+  },
+  {
+    "id": 30,
+    "name": "S.N. Medical College — Agra",
+    "type": "hospital",
+    "lat": 27.5000,
+    "lng": 77.6700,
+    "rating": 4.4,
+    "address": "Agra, UP"
+  },
+  {
+    "id": 31,
+    "name": "Yamuna Expy Rest Area — Km 10",
+    "type": "rest",
+    "lat": 28.4500,
+    "lng": 77.5150,
+    "rating": 4.0,
+    "address": "Yamuna Expressway, Km 10 Rest Area"
+  },
+  {
+    "id": 32,
+    "name": "Midway Plaza — Yamuna Expy Km 65",
+    "type": "rest",
+    "lat": 28.2200,
+    "lng": 77.6300,
+    "rating": 4.2,
+    "address": "Yamuna Expressway, Km 65 Service Plaza"
+  },
+  {
+    "id": 33,
+    "name": "Agra Entry Rest Plaza",
+    "type": "rest",
+    "lat": 27.5700,
+    "lng": 77.6700,
+    "rating": 3.8,
+    "address": "Yamuna Expressway, Agra Entry, UP"
+  },
+
+  {
+    "id": 34,
+    "name": "Hindustan Petroleum — Sector 105",
+    "type": "fuel",
+    "lat": 28.5450,
+    "lng": 77.3850,
+    "rating": 4.0,
+    "address": "Noida-Greater Noida Expressway, Sector 105"
+  },
+  {
+    "id": 35,
+    "name": "Café Coffee Day — Expy Food Zone",
+    "type": "food",
+    "lat": 28.5300,
+    "lng": 77.4000,
+    "rating": 3.9,
+    "address": "Noida-Greater Noida Expressway, Sector 135"
+  },
+  {
+    "id": 36,
+    "name": "Fortis Hospital — Sector 62",
+    "type": "hospital",
+    "lat": 28.6100,
+    "lng": 77.3650,
+    "rating": 4.6,
+    "address": "Sector 62, Noida, UP"
+  },
+  {
+    "id": 37,
+    "name": "Expy Pit Stop — Sector 150",
+    "type": "rest",
+    "lat": 28.4900,
+    "lng": 77.4700,
+    "rating": 3.7,
+    "address": "Noida-Greater Noida Expressway, Sector 150"
   }
 ]
