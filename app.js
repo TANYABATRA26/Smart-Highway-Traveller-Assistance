@@ -13,21 +13,72 @@ const BADGE_ICONS = {
   rest:     '🛋️',
 };
 
-let map, userMarker, directionsRenderer;
+// ─── Highway Routes (no Geocoder needed) ────────────
+// Waypoints sampled every ~5 km along each highway
+const HIGHWAYS = {
+  'yamuna-expressway': {
+    label:  'Yamuna Expressway — Greater Noida → Agra',
+    color:  '#4f9ef8',
+    bounds: { north: 28.54, south: 27.17, east: 77.70, west: 77.38 },
+    points: [
+      { lat: 28.5355, lng: 77.3910 }, // Greater Noida Pari Chowk (start)
+      { lat: 28.4744, lng: 77.5040 }, // Jewar
+      { lat: 28.3740, lng: 77.5620 }, // Tappal
+      { lat: 28.2750, lng: 77.6030 }, // Mathura approach
+      { lat: 28.1500, lng: 77.6350 },
+      { lat: 28.0100, lng: 77.6550 },
+      { lat: 27.8600, lng: 77.6680 },
+      { lat: 27.7100, lng: 77.6730 },
+      { lat: 27.5800, lng: 77.6690 },
+      { lat: 27.4924, lng: 77.6737 }, // Agra (end)
+    ],
+  },
+  'noida-greater-noida-expy': {
+    label:  'Noida–Greater Noida Expressway',
+    color:  '#48bb78',
+    bounds: { north: 28.58, south: 28.46, east: 77.52, west: 77.30 },
+    points: [
+      { lat: 28.5706, lng: 77.3217 }, // Noida Sector 18
+      { lat: 28.5550, lng: 77.3500 },
+      { lat: 28.5350, lng: 77.3780 },
+      { lat: 28.5150, lng: 77.4100 },
+      { lat: 28.4980, lng: 77.4420 },
+      { lat: 28.4744, lng: 77.5040 }, // Greater Noida Pari Chowk
+    ],
+  },
+  'nh9-delhi-meerut': {
+    label:  'NH-9 — Delhi → Meerut',
+    color:  '#f6a623',
+    bounds: { north: 28.98, south: 28.61, east: 77.72, west: 77.20 },
+    points: [
+      { lat: 28.6280, lng: 77.2200 }, // Delhi Anand Vihar
+      { lat: 28.6411, lng: 77.3687 }, // Indirapuram
+      { lat: 28.6692, lng: 77.4538 }, // Kaushambi NH-9
+      { lat: 28.6820, lng: 77.4710 }, // Mohan Nagar
+      { lat: 28.7120, lng: 77.5010 }, // Meerut approach
+      { lat: 28.7900, lng: 77.5500 },
+      { lat: 28.8600, lng: 77.5900 },
+      { lat: 28.9800, lng: 77.7070 }, // Meerut city
+    ],
+  },
+};
+
+let map, userMarker, routePolyline, directionsRenderer;
 let currentMarkers = [];
 let currentResults = [];
 let allResults     = [];
 let activeFilter   = 'all';
 let userLat        = null;
 let userLng        = null;
+let activeHighway  = null;
 
-// ─── Map Initialisation (called by Maps SDK callback) ─────────
+// ─── Map Initialisation ───────────────────────────────────────
 function initMap() {
   const defaultCenter = { lat: 28.5706, lng: 77.3217 };
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: defaultCenter,
-    zoom: 13,
+    zoom: 12,
     mapTypeId: 'roadmap',
     disableDefaultUI: true,
     zoomControl: true,
@@ -44,7 +95,6 @@ function initMap() {
   });
   directionsRenderer.setMap(map);
 
-  // Get real user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -69,12 +119,23 @@ function initMap() {
 
   updateClock();
   setInterval(updateClock, 1000);
+
+  // Wire up highway selector
+  document.getElementById('highway-select').addEventListener('change', function () {
+    const key = this.value;
+    if (!key) {
+      clearHighway();
+    } else {
+      selectHighway(key);
+    }
+  });
+
+  document.getElementById('clear-route-btn').addEventListener('click', clearHighway);
 }
 
 // ─── User Location Marker ─────────────────────────────────────
 function placeUserMarker(lat, lng) {
   if (userMarker) userMarker.setMap(null);
-
   userMarker = new google.maps.Marker({
     position: { lat, lng },
     map,
@@ -91,6 +152,52 @@ function placeUserMarker(lat, lng) {
   });
 }
 
+// ─── Highway Selection ────────
+function selectHighway(key) {
+  const highway = HIGHWAYS[key];
+  if (!highway) return;
+  activeHighway = key;
+
+  // Remove old polyline
+  if (routePolyline) routePolyline.setMap(null);
+  directionsRenderer.setDirections({ routes: [] });
+
+  // Draw polyline
+  routePolyline = new google.maps.Polyline({
+    path: highway.points,
+    geodesic: true,
+    strokeColor: highway.color,
+    strokeWeight: 5,
+    strokeOpacity: 0.85,
+    map,
+  });
+
+  // Fit map to route
+  const bounds = new google.maps.LatLngBounds();
+  highway.points.forEach(p => bounds.extend(p));
+  map.fitBounds(bounds, { padding: 60 });
+
+  // Update route info badge
+  document.getElementById('route-dest').textContent    = highway.label;
+  document.getElementById('route-details').textContent =
+    `${highway.points.length} waypoints · ${key === 'yamuna-expressway' ? '165 km' : key === 'noida-greater-noida-expy' ? '25 km' : '90 km'}`;
+  document.getElementById('route-info').classList.add('visible');
+
+  // Fetch filtered recommendations
+  fetchRecommendations(highway.points);
+  showToast(`🛣️ Showing services along ${highway.label.split('—')[0].trim()}`);
+}
+
+function clearHighway() {
+  activeHighway = null;
+  if (routePolyline) { routePolyline.setMap(null); routePolyline = null; }
+  directionsRenderer.setDirections({ routes: [] });
+  document.getElementById('route-info').classList.remove('visible');
+  document.getElementById('highway-select').value = '';
+  fetchRecommendations();
+  showToast('🔄 Showing all nearby services');
+}
+
 // ─── Fetch Recommendations ────────────────────────────────────
 async function fetchRecommendations(routePoints = null) {
   const hour = new Date().getHours();
@@ -98,7 +205,8 @@ async function fetchRecommendations(routePoints = null) {
 
   let url = `${API_BASE}/recommend?lat=${userLat}&lng=${userLng}&time=${hour}`;
   if (routePoints && routePoints.length > 0) {
-    const sampled = routePoints.filter((_, i) => i % 5 === 0);
+    // Sample every 2nd point to keep URL short
+    const sampled = routePoints.filter((_, i) => i % 2 === 0);
     url += `&route=${encodeURIComponent(JSON.stringify(sampled))}`;
   }
 
@@ -114,7 +222,7 @@ async function fetchRecommendations(routePoints = null) {
     document.getElementById('cards-container').innerHTML = `
       <div id="empty-state">
         <div class="empty-icon">⚠️</div>
-        <p>Could not reach the API server.<br/>Make sure <strong>node server.js</strong> is running on port 3000.</p>
+        <p>Could not reach the API server.<br/>Make sure <strong>node server.js</strong> is running.</p>
       </div>`;
     console.error('Recommend API error:', err);
   }
@@ -137,7 +245,7 @@ function renderCards(results) {
     container.innerHTML = `
       <div id="empty-state">
         <div class="empty-icon">🔍</div>
-        <p>No services found nearby.<br/>Try a different location or route.</p>
+        <p>No services found along this route.<br/>Try a different highway or clear the route.</p>
       </div>`;
     return;
   }
@@ -149,7 +257,7 @@ function renderCards(results) {
       <div class="card-top">
         <div class="card-name">${BADGE_ICONS[place.type]} ${place.name}</div>
         <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
-          <div class="card-score" title="Ranked by: (1 / distance_km) × rating × time context">${Math.round(place.score * 1000)} pts</div>
+          <div class="card-score" title="Score = (1/distance) × rating × time bonus">${Math.round(place.score * 1000)} pts</div>
           <span class="card-badge badge-${place.type}">${place.type}</span>
           <div class="card-rank">#${i + 1}</div>
         </div>
@@ -181,10 +289,9 @@ function applyFilter(type) {
 
 window.filterBy = (type) => applyFilter(type);
 
-// ─── Map Markers (Standard Marker) ────────────────────────────
+// ─── Map Markers ──────────────────────────────────────────────
 function plotMarkers(places) {
   places.forEach((place) => {
-    // Custom SVG icon matching the previous aesthetic
     const svgIcon = {
       path: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z',
       fillColor: MARKER_COLORS[place.type],
@@ -254,70 +361,6 @@ function panToMarker(id) {
 window.highlightCard = highlightCard;
 window.panToMarker   = panToMarker;
 
-// ─── Route Drawing ────────────────────────────────────────────
-function drawRoute(destLat, destLng, destName) {
-  const directionsService = new google.maps.DirectionsService();
-
-  directionsService.route(
-    {
-      origin:      { lat: userLat, lng: userLng },
-      destination: { lat: destLat, lng: destLng },
-      travelMode:  google.maps.TravelMode.DRIVING,
-    },
-    (result, status) => {
-      if (status === 'OK') {
-        directionsRenderer.setDirections(result);
-
-        const routePath = result.routes[0].overview_path.map(p => ({
-          lat: p.lat(), lng: p.lng(),
-        }));
-
-        const totalDist = result.routes[0].legs[0].distance.text;
-        const totalTime = result.routes[0].legs[0].duration.text;
-        document.getElementById('route-dest').textContent    = destName || 'Destination';
-        document.getElementById('route-details').textContent = `${totalDist} · ${totalTime}`;
-        document.getElementById('route-info').classList.add('visible');
-
-        fetchRecommendations(routePath);
-        showToast('🗺️ Route drawn — showing services within 5 km of path');
-      } else {
-        showToast('❌ Could not draw route. Try a different destination.');
-        console.error('Directions error:', status);
-      }
-    }
-  );
-}
-
-// Go button
-document.getElementById('go-btn').addEventListener('click', () => {
-  const val = document.getElementById('destination-input').value.trim();
-  if (!val) { showToast('🔍 Enter a destination first'); return; }
-
-  const geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: val + ', India' }, (results, status) => {
-    if (status === 'OK') {
-      const loc = results[0].geometry.location;
-      drawRoute(loc.lat(), loc.lng(), results[0].formatted_address);
-    } else {
-      showToast('❌ Destination not found. Try adding the state name.');
-    }
-  });
-});
-
-// Enter key
-document.getElementById('destination-input').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') document.getElementById('go-btn').click();
-});
-
-// Clear route
-document.getElementById('clear-route-btn').addEventListener('click', () => {
-  directionsRenderer.setDirections({ routes: [] });
-  document.getElementById('route-info').classList.remove('visible');
-  document.getElementById('destination-input').value = '';
-  fetchRecommendations();
-  showToast('🔄 Showing all nearby services');
-});
-
 // ─── Weather ──────────────────────────────────────────────────
 async function fetchWeather(lat, lng) {
   try {
@@ -327,13 +370,10 @@ async function fetchWeather(lat, lng) {
     const data = await res.json();
 
     if (data.cod !== 200) throw new Error('OWM error');
-
-    const temp      = Math.round(data.main.temp);
-    const desc      = data.weather[0].description;
-    const city      = `${data.name}, ${data.sys.country}`;
-    const weatherId = data.weather[0].id;
-
-    document.getElementById('weather-icon').textContent = getWeatherEmoji(weatherId);
+    const temp = Math.round(data.main.temp);
+    const desc = data.weather[0].description;
+    const city = `${data.name}, ${data.sys.country}`;
+    document.getElementById('weather-icon').textContent = getWeatherEmoji(data.weather[0].id);
     document.getElementById('weather-temp').textContent = `${temp}°C`;
     document.getElementById('weather-city').textContent = city;
     document.getElementById('weather-desc').textContent = desc.charAt(0).toUpperCase() + desc.slice(1);

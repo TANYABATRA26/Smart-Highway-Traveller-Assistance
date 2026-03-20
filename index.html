@@ -27,12 +27,15 @@
       </div>
     </a>
 
-    <!-- Destination Search -->
+    <!-- Highway Selector (replaces text search + Geocoder) -->
     <div id="destination-wrap" role="search">
-      <span class="search-icon" aria-hidden="true">🔍</span>
-      <input id="destination-input" type="text" placeholder="Where are you going? (e.g. Agra, Meerut)"
-        aria-label="Destination input" autocomplete="off" />
-      <button id="go-btn" aria-label="Get route recommendations">Go</button>
+      <span class="search-icon" aria-hidden="true">🛣️</span>
+      <select id="highway-select" aria-label="Select a highway route">
+        <option value="">Select a highway route…</option>
+        <option value="yamuna-expressway">Yamuna Expressway — Greater Noida → Agra</option>
+        <option value="noida-greater-noida-expy">Noida–Greater Noida Expressway</option>
+        <option value="nh9-delhi-meerut">NH-9 — Delhi → Meerut</option>
+      </select>
     </div>
 
     <!-- Clock Chip -->
@@ -50,16 +53,15 @@
       <!-- Sidebar Header -->
       <div id="sidebar-header">
         <h2>Nearby Services</h2>
-        <!-- <p id="sidebar-subtitle">Fetching your location…</p> -->
       </div>
 
       <!-- Category Filter Chips -->
       <div id="filter-chips" role="tablist" aria-label="Filter by category">
-        <button class="chip active" data-type="all" role="tab" onclick="filterBy('all')"> 🗺️ All</button>
-        <button class="chip" data-type="fuel" role="tab" onclick="filterBy('fuel')"> ⛽ Fuel</button>
-        <button class="chip" data-type="food" role="tab" onclick="filterBy('food')"> 🍽️ Food</button>
-        <button class="chip" data-type="hospital" role="tab" onclick="filterBy('hospital')"> 🏥 Hospital</button>
-        <button class="chip" data-type="rest" role="tab" onclick="filterBy('rest')"> 🛋️ Rest</button>
+        <button class="chip active" data-type="all" role="tab" onclick="filterBy('all')">🗺️ All</button>
+        <button class="chip" data-type="fuel" role="tab" onclick="filterBy('fuel')">⛽ Fuel</button>
+        <button class="chip" data-type="food" role="tab" onclick="filterBy('food')">🍽️ Food</button>
+        <button class="chip" data-type="hospital" role="tab" onclick="filterBy('hospital')">🏥 Hospital</button>
+        <button class="chip" data-type="rest" role="tab" onclick="filterBy('rest')">🛋️ Rest</button>
       </div>
 
       <!-- Result Cards -->
@@ -91,7 +93,7 @@
 
       <!-- Route Info Badge -->
       <div id="route-info" role="status" aria-live="polite">
-        🗺️ Route to <strong id="route-dest">—</strong>
+        🛣️ <strong id="route-dest">—</strong>
         <span id="route-details" style="color:var(--text-secondary);font-size:11px;"></span>
         <button id="clear-route-btn">✕ Clear</button>
       </div>
@@ -99,18 +101,10 @@
       <!-- Map Legend -->
       <div id="legend" aria-label="Map legend">
         <h4>Legend</h4>
-        <div class="legend-item">
-          <div class="legend-dot fuel"></div> Fuel Station
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot food"></div> Food / Dhaba
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot hospital"></div> Hospital
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot rest"></div> Rest Stop
-        </div>
+        <div class="legend-item"><div class="legend-dot fuel"></div> Fuel Station</div>
+        <div class="legend-item"><div class="legend-dot food"></div> Food / Dhaba</div>
+        <div class="legend-item"><div class="legend-dot hospital"></div> Hospital</div>
+        <div class="legend-item"><div class="legend-dot rest"></div> Rest Stop</div>
       </div>
 
       <!-- Weather Strip -->
