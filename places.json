@@ -179,7 +179,6 @@
     "rating": 4.1,
     "address": "Sector 62, Noida, UP"
   },
-
   {
     "id": 21,
     "name": "Indian Oil — Yamuna Expy Km 8",
@@ -297,7 +296,6 @@
     "rating": 3.8,
     "address": "Yamuna Expressway, Agra Entry, UP"
   },
-
   {
     "id": 34,
     "name": "Hindustan Petroleum — Sector 105",
@@ -333,5 +331,347 @@
     "lng": 77.4700,
     "rating": 3.7,
     "address": "Noida-Greater Noida Expressway, Sector 150"
+  },
+  {
+    "id": 38,
+    "name": "HP Petrol — DND Flyway Entry",
+    "type": "fuel",
+    "lat": 28.598,
+    "lng": 77.273,
+    "rating": 4.1,
+    "address": "DND Flyway, Nizamuddin, Delhi"
+  },
+  {
+    "id": 39,
+    "name": "Cafe Coffee Day — DND Toll",
+    "type": "food",
+    "lat": 28.584,
+    "lng": 77.289,
+    "rating": 3.9,
+    "address": "DND Flyway, Delhi"
+  },
+  {
+    "id": 40,
+    "name": "Apollo Spectra — Sarita Vihar",
+    "type": "hospital",
+    "lat": 28.569,
+    "lng": 77.3,
+    "rating": 4.4,
+    "address": "Sarita Vihar, Delhi"
+  },
+  {
+    "id": 41,
+    "name": "DND Rest Bay",
+    "type": "rest",
+    "lat": 28.576,
+    "lng": 77.295,
+    "rating": 3.7,
+    "address": "DND Flyway midpoint, Delhi"
+  },
+  {
+    "id": 42,
+    "name": "Indian Oil — Kundli NH-44",
+    "type": "fuel",
+    "lat": 28.72,
+    "lng": 77.095,
+    "rating": 4.0,
+    "address": "Kundli, Sonipat, Haryana"
+  },
+  {
+    "id": 43,
+    "name": "Sonipat Dhaba — NH-44",
+    "type": "food",
+    "lat": 28.81,
+    "lng": 77.082,
+    "rating": 4.3,
+    "address": "NH-44, Sonipat, Haryana"
+  },
+  {
+    "id": 44,
+    "name": "Civil Hospital Sonipat",
+    "type": "hospital",
+    "lat": 28.995,
+    "lng": 77.02,
+    "rating": 3.8,
+    "address": "Sonipat, Haryana"
+  },
+  {
+    "id": 45,
+    "name": "Panipat Highway Rest Area",
+    "type": "rest",
+    "lat": 29.27,
+    "lng": 77.03,
+    "rating": 4.0,
+    "address": "NH-44, near Panipat, Haryana"
+  },
+  {
+    "id": 46,
+    "name": "BPCL — Panipat NH-44",
+    "type": "fuel",
+    "lat": 29.387,
+    "lng": 76.969,
+    "rating": 3.9,
+    "address": "Panipat, Haryana"
+  },
+  {
+    "id": 47,
+    "name": "Haldirams — NH-44 Panipat",
+    "type": "food",
+    "lat": 29.36,
+    "lng": 76.98,
+    "rating": 4.2,
+    "address": "NH-44, Panipat, Haryana"
+  },
+  {
+    "id": 48,
+    "name": "Shell — Dhaula Kuan",
+    "type": "fuel",
+    "lat": 28.6,
+    "lng": 77.13,
+    "rating": 4.3,
+    "address": "Dhaula Kuan, Delhi"
+  },
+  {
+    "id": 49,
+    "name": "Rajokri Dhaba — NH-48",
+    "type": "food",
+    "lat": 28.52,
+    "lng": 77.08,
+    "rating": 4.1,
+    "address": "Rajokri, NH-48, Delhi"
+  },
+  {
+    "id": 50,
+    "name": "Medanta Hospital — Gurugram",
+    "type": "hospital",
+    "lat": 28.45,
+    "lng": 77.045,
+    "rating": 4.7,
+    "address": "Sector 38, Gurugram, Haryana"
+  },
+  {
+    "id": 51,
+    "name": "Kherki Daula Service Area",
+    "type": "rest",
+    "lat": 28.485,
+    "lng": 77.05,
+    "rating": 4.0,
+    "address": "NH-48, Kherki Daula Toll, Gurugram"
+  },
+  {
+    "id": 52,
+    "name": "Indian Oil — Manesar NH-48",
+    "type": "fuel",
+    "lat": 28.413,
+    "lng": 77.01,
+    "rating": 3.8,
+    "address": "Manesar, Gurugram, Haryana"
+  },
+  {
+    "id": 53,
+    "name": "HP Fuel — EPE Kundli",
+    "type": "fuel",
+    "lat": 28.865,
+    "lng": 77.31,
+    "rating": 4.0,
+    "address": "Eastern Peripheral Expy, Kundli"
+  },
+  {
+    "id": 54,
+    "name": "EPE Midway Dhaba — Dasna",
+    "type": "food",
+    "lat": 28.6,
+    "lng": 77.4,
+    "rating": 4.2,
+    "address": "Dasna Interchange, EPE, UP"
+  },
+  {
+    "id": 55,
+    "name": "Yatharth Hospital — EPE",
+    "type": "hospital",
+    "lat": 28.51,
+    "lng": 77.44,
+    "rating": 4.3,
+    "address": "Greater Noida West, EPE"
+  },
+  {
+    "id": 56,
+    "name": "EPE Plaza Rest Stop — Palwal",
+    "type": "rest",
+    "lat": 28.15,
+    "lng": 77.52,
+    "rating": 3.9,
+    "address": "Eastern Peripheral Expy, Palwal"
+  },
+  {
+    "id": 57,
+    "name": "BPCL — EPE Km 50",
+    "type": "fuel",
+    "lat": 28.42,
+    "lng": 77.47,
+    "rating": 3.7,
+    "address": "Eastern Peripheral Expressway, UP"
+  },
+  {
+    "id": 58,
+    "name": "Indian Oil — WPE Bahadurgarh",
+    "type": "fuel",
+    "lat": 28.69,
+    "lng": 77.07,
+    "rating": 4.0,
+    "address": "Bahadurgarh, WPE, Haryana"
+  },
+  {
+    "id": 59,
+    "name": "Pind Balluchi — WPE",
+    "type": "food",
+    "lat": 28.6,
+    "lng": 77.03,
+    "rating": 4.4,
+    "address": "Western Peripheral Expy, Haryana"
+  },
+  {
+    "id": 60,
+    "name": "Civil Hospital Bahadurgarh",
+    "type": "hospital",
+    "lat": 28.692,
+    "lng": 77.065,
+    "rating": 3.8,
+    "address": "Bahadurgarh, Jhajjar, Haryana"
+  },
+  {
+    "id": 61,
+    "name": "WPE Manesar Rest Area",
+    "type": "rest",
+    "lat": 28.36,
+    "lng": 76.94,
+    "rating": 4.1,
+    "address": "Western Peripheral Expy, Manesar"
+  },
+  {
+    "id": 62,
+    "name": "Hapur Dhaba — NH-24",
+    "type": "food",
+    "lat": 28.73,
+    "lng": 77.78,
+    "rating": 4.2,
+    "address": "NH-24, Hapur, UP"
+  },
+  {
+    "id": 63,
+    "name": "Moradabad Fuel Stop — NH-24",
+    "type": "fuel",
+    "lat": 28.75,
+    "lng": 78.4,
+    "rating": 3.9,
+    "address": "NH-24, Moradabad, UP"
+  },
+  {
+    "id": 64,
+    "name": "Bareilly Highway Plaza",
+    "type": "rest",
+    "lat": 27.9,
+    "lng": 79.5,
+    "rating": 4.0,
+    "address": "NH-24, Bareilly, UP"
+  },
+  {
+    "id": 65,
+    "name": "District Hospital — Shahjahanpur",
+    "type": "hospital",
+    "lat": 27.55,
+    "lng": 79.9,
+    "rating": 3.7,
+    "address": "Shahjahanpur, UP"
+  },
+  {
+    "id": 66,
+    "name": "Lucknow Entry Dhaba",
+    "type": "food",
+    "lat": 26.95,
+    "lng": 80.9,
+    "rating": 4.5,
+    "address": "NH-24, Lucknow entry, UP"
+  },
+  {
+    "id": 67,
+    "name": "Badarpur Petrol Pump",
+    "type": "fuel",
+    "lat": 28.48,
+    "lng": 77.29,
+    "rating": 3.8,
+    "address": "Badarpur, Delhi–Faridabad border"
+  },
+  {
+    "id": 68,
+    "name": "Faridabad Dhaba — Sector 17",
+    "type": "food",
+    "lat": 28.45,
+    "lng": 77.31,
+    "rating": 4.0,
+    "address": "Sector 17, Faridabad, Haryana"
+  },
+  {
+    "id": 69,
+    "name": "Asian Institute — Faridabad",
+    "type": "hospital",
+    "lat": 28.42,
+    "lng": 77.31,
+    "rating": 4.5,
+    "address": "Sector 21A, Faridabad, Haryana"
+  },
+  {
+    "id": 70,
+    "name": "Murad Nagar Fuel — NH-58",
+    "type": "fuel",
+    "lat": 28.74,
+    "lng": 77.49,
+    "rating": 4.0,
+    "address": "NH-58, Murad Nagar, Ghaziabad"
+  },
+  {
+    "id": 71,
+    "name": "Muzaffarnagar Dhaba — NH-58",
+    "type": "food",
+    "lat": 29.09,
+    "lng": 77.65,
+    "rating": 4.3,
+    "address": "NH-58, Muzaffarnagar, UP"
+  },
+  {
+    "id": 72,
+    "name": "Roorkee Rest Plaza — NH-58",
+    "type": "rest",
+    "lat": 29.37,
+    "lng": 77.98,
+    "rating": 4.1,
+    "address": "NH-58, Roorkee, Uttarakhand"
+  },
+  {
+    "id": 73,
+    "name": "AIIMS Rishikesh — NH-58",
+    "type": "hospital",
+    "lat": 30.0869,
+    "lng": 78.2676,
+    "rating": 4.8,
+    "address": "Virbhadra, Rishikesh, Uttarakhand"
+  },
+  {
+    "id": 74,
+    "name": "Haridwar Entry Dhaba",
+    "type": "food",
+    "lat": 29.92,
+    "lng": 78.15,
+    "rating": 4.4,
+    "address": "NH-58, Haridwar, Uttarakhand"
+  },
+  {
+    "id": 75,
+    "name": "HP Fuel — Haridwar Bypass",
+    "type": "fuel",
+    "lat": 29.9457,
+    "lng": 78.1642,
+    "rating": 4.0,
+    "address": "Haridwar Bypass, Uttarakhand"
   }
 ]

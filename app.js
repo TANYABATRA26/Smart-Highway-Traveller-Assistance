@@ -61,6 +61,132 @@ const HIGHWAYS = {
       { lat: 28.9800, lng: 77.7070 }, // Meerut city
     ],
   },
+
+  'dnd-flyway': {
+    label:  'DND Flyway — Delhi → Noida',
+    color:  '#a78bfa',
+    bounds: { north: 28.60, south: 28.54, east: 77.34, west: 77.27 },
+    points: [
+      { lat: 28.5980, lng: 77.2730 }, // Nizamuddin, Delhi
+      { lat: 28.5890, lng: 77.2850 },
+      { lat: 28.5800, lng: 77.2980 },
+      { lat: 28.5710, lng: 77.3080 },
+      { lat: 28.5640, lng: 77.3180 }, // Noida Sector 15A
+    ],
+  },
+
+  'nh-44-delhi-panipat': {
+    label:  'NH-44 — Delhi → Panipat',
+    color:  '#fc5c65',
+    bounds: { north: 29.40, south: 28.67, east: 77.35, west: 77.00 },
+    points: [
+      { lat: 28.6730, lng: 77.1040 }, // Mukarba Chowk, Delhi
+      { lat: 28.7200, lng: 77.0950 }, // Kundli
+      { lat: 28.8100, lng: 77.0820 }, // Sonipat
+      { lat: 28.9300, lng: 77.0700 },
+      { lat: 29.0500, lng: 77.0600 },
+      { lat: 29.1600, lng: 77.0500 },
+      { lat: 29.2700, lng: 77.0300 },
+      { lat: 29.3870, lng: 76.9690 }, // Panipat
+    ],
+  },
+
+  'nh-48-delhi-gurugram': {
+    label:  'NH-48 — Delhi → Gurugram',
+    color:  '#48bb78',
+    bounds: { north: 28.65, south: 28.41, east: 77.18, west: 76.98 },
+    points: [
+      { lat: 28.6350, lng: 77.1490 }, // Dhaula Kuan, Delhi
+      { lat: 28.6000, lng: 77.1300 },
+      { lat: 28.5600, lng: 77.1100 },
+      { lat: 28.5200, lng: 77.0800 }, // Rajokri
+      { lat: 28.4850, lng: 77.0500 }, // Kherki Daula Toll
+      { lat: 28.4500, lng: 77.0300 }, // Manesar
+      { lat: 28.4130, lng: 77.0100 }, // NH-48 Gurugram stretch
+    ],
+  },
+
+  'eastern-peripheral': {
+    label:  'Eastern Peripheral Expy — Kundli → Palwal',
+    color:  '#f6a623',
+    bounds: { north: 28.87, south: 28.12, east: 77.55, west: 77.30 },
+    points: [
+      { lat: 28.8650, lng: 77.3100 }, // Kundli (start)
+      { lat: 28.7800, lng: 77.3400 },
+      { lat: 28.6900, lng: 77.3700 },
+      { lat: 28.6000, lng: 77.4000 }, // Dasna interchange
+      { lat: 28.5100, lng: 77.4400 },
+      { lat: 28.4200, lng: 77.4700 },
+      { lat: 28.3300, lng: 77.4900 },
+      { lat: 28.2400, lng: 77.5100 },
+      { lat: 28.1500, lng: 77.5200 }, // Palwal (end)
+    ],
+  },
+
+  'western-peripheral': {
+    label:  'Western Peripheral Expy — Kundli → Manesar',
+    color:  '#4f9ef8',
+    bounds: { north: 28.87, south: 28.35, east: 77.12, west: 76.90 },
+    points: [
+      { lat: 28.8650, lng: 77.1100 }, // Kundli
+      { lat: 28.7800, lng: 77.0900 },
+      { lat: 28.6900, lng: 77.0700 }, // Bahadurgarh
+      { lat: 28.6000, lng: 77.0300 },
+      { lat: 28.5200, lng: 76.9900 }, // Pataudi Road
+      { lat: 28.4400, lng: 76.9600 },
+      { lat: 28.3600, lng: 76.9400 }, // Manesar
+    ],
+  },
+
+  'nh-24-delhi-lucknow': {
+    label:  'NH-24 / NH-9 — Delhi → Lucknow',
+    color:  '#fc5c65',
+    bounds: { north: 27.00, south: 26.80, east: 81.00, west: 77.20 },
+    points: [
+      { lat: 28.6280, lng: 77.2200 }, // Anand Vihar Delhi
+      { lat: 28.6692, lng: 77.4538 }, // Ghaziabad NH-9
+      { lat: 28.7120, lng: 77.5010 },
+      { lat: 28.8300, lng: 77.7000 }, // Meerut bypass
+      { lat: 28.9600, lng: 77.8800 },
+      { lat: 28.9000, lng: 78.0800 }, // Hapur
+      { lat: 28.7500, lng: 78.4000 }, // Moradabad
+      { lat: 28.4500, lng: 79.0000 }, // Rampur
+      { lat: 27.9000, lng: 79.5000 }, // Bareilly
+      { lat: 27.5500, lng: 80.2000 }, // Shahjahanpur
+      { lat: 27.1000, lng: 80.7500 }, // Hardoi
+      { lat: 26.8500, lng: 80.9500 }, // Lucknow
+    ],
+  },
+
+  'noida-faridabad': {
+    label:  'Noida–Faridabad Road (NH-19 link)',
+    color:  '#a78bfa',
+    bounds: { north: 28.58, south: 28.38, east: 77.37, west: 77.26 },
+    points: [
+      { lat: 28.5660, lng: 77.3200 }, // Noida Sector 37
+      { lat: 28.5400, lng: 77.3100 },
+      { lat: 28.5100, lng: 77.3000 },
+      { lat: 28.4800, lng: 77.2900 }, // Badarpur border
+      { lat: 28.4500, lng: 77.3100 }, // Faridabad Sector 17
+      { lat: 28.4100, lng: 77.3200 }, // Old Faridabad
+    ],
+  },
+
+  'nh-58-delhi-haridwar': {
+    label:  'NH-58 — Delhi → Haridwar',
+    color:  '#48bb78',
+    bounds: { north: 29.96, south: 28.67, east: 78.18, west: 77.10 },
+    points: [
+      { lat: 28.6730, lng: 77.1040 }, // Kashmere Gate, Delhi
+      { lat: 28.7400, lng: 77.0700 }, // Murad Nagar
+      { lat: 28.8300, lng: 77.0200 },
+      { lat: 28.9700, lng: 77.0100 }, // Meerut
+      { lat: 29.0900, lng: 77.6500 }, // Muzaffarnagar
+      { lat: 29.3700, lng: 77.9800 }, // Roorkee
+      { lat: 29.6500, lng: 78.0500 },
+      { lat: 29.9457, lng: 78.1642 }, // Haridwar
+    ],
+  },
 };
 
 let map, userMarker, routePolyline, directionsRenderer;
@@ -178,9 +304,21 @@ function selectHighway(key) {
   map.fitBounds(bounds, { padding: 60 });
 
   // Update route info badge
+  const DISTANCES = {
+    'yamuna-expressway':        '165 km',
+    'noida-greater-noida-expy': '25 km',
+    'nh9-delhi-meerut':         '90 km',
+    'dnd-flyway':               '10 km',
+    'nh-44-delhi-panipat':      '100 km',
+    'nh-48-delhi-gurugram':     '35 km',
+    'eastern-peripheral':       '135 km',
+    'western-peripheral':       '135 km',
+    'nh-24-delhi-lucknow':      '490 km',
+    'noida-faridabad':          '28 km',
+    'nh-58-delhi-haridwar':     '214 km',
+  };
   document.getElementById('route-dest').textContent    = highway.label;
-  document.getElementById('route-details').textContent =
-    `${highway.points.length} waypoints · ${key === 'yamuna-expressway' ? '165 km' : key === 'noida-greater-noida-expy' ? '25 km' : '90 km'}`;
+  document.getElementById('route-details').textContent = DISTANCES[key] || (highway.points.length + ' waypoints');
   document.getElementById('route-info').classList.add('visible');
 
   // Fetch filtered recommendations
@@ -432,10 +570,10 @@ const DARK_MAP_STYLE = [
   { featureType: 'water', elementType: 'labels.text.stroke', stylers: [{ color: '#17263c' }] },
 ];
 
-// ─── App Initialization ─────────────────────────────────────────
+// ─── App Initialization ───────────────────────────────────────
 async function initializeApp() {
   try {
-    const res = await fetch(`${API_BASE}/config`);
+    const res    = await fetch(`${API_BASE}/config`);
     const config = await res.json();
     OWM_KEY = config.WEATHER_API_KEY;
 
